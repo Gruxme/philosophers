@@ -6,7 +6,7 @@
 #    By: abiari <abiari@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/03 12:59:14 by abiari            #+#    #+#              #
-#    Updated: 2021/07/06 12:23:43 by abiari           ###   ########.fr        #
+#    Updated: 2021/07/06 12:24:58 by abiari           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,12 +23,12 @@ SRC_BONUS = philo_bonus.c
 all: $(NAME)
 
 $(NAME): $(SRC)
-	$(CC) $(CFLAGS) $(SRC) ../libft/libft.a -o $(NAME)
+	$(CC) $(CFLAGS) $(SRC) -o $(NAME)
 
 bonus: $(NAME_BONUS)
 
 $(NAME_BONUS): $(SRC_BONUS)
-	$(CC) $(CFLAGS) $(SRC_BONUS) ../libft/libft.a -o $(NAME_BONUS)
+	$(CC) $(CFLAGS) $(SRC_BONUS) -o $(NAME_BONUS)
 
 clean:
 	/bin/rm -f $(OBJS)
