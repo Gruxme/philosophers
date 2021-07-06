@@ -1,0 +1,44 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: abiari <abiari@student.42.fr>              +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2021/07/03 12:59:14 by abiari            #+#    #+#              #
+#    Updated: 2021/07/05 17:16:45 by abiari           ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+NAME = philo
+CC = gcc
+CFLAGS = -Wall -Werror -Wextra -g3
+NAME_BONUS = philo_bonus
+
+SRC = philo.c time_funcs.c ft_atoi.c inits.c clear_all.c philo_eat.c\
+print_status.c philo_sleep.c philo_think.c supervisor.c
+
+SRC_BONUS = philo_bonus.c
+
+all: $(NAME)
+
+$(NAME): $(SRC)
+	make -C ../libft/ && make clean -C ../libft/
+	$(CC) $(CFLAGS) $(SRC) ../libft/libft.a -o $(NAME)
+
+bonus: $(NAME_BONUS)
+
+$(NAME_BONUS): $(SRC_BONUS)
+	make -C ../libft/ && make clean -C ../libft/
+	$(CC) $(CFLAGS) $(SRC_BONUS) ../libft/libft.a -o $(NAME_BONUS)
+
+clean:
+	/bin/rm -f $(OBJS)
+
+fclean: clean
+	/bin/rm -f $(NAME)
+	/bin/rm -f $(NAME_BONUS)
+
+re : fclean all
+
+.PHONY: clean fclean all re
