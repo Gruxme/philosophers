@@ -6,7 +6,7 @@
 /*   By: abiari <abiari@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 12:49:04 by abiari            #+#    #+#             */
-/*   Updated: 2021/07/06 09:41:38 by abiari           ###   ########.fr       */
+/*   Updated: 2021/07/06 14:21:05 by abiari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@
 # include <unistd.h>
 # include <string.h>
 # include <sys/time.h>
-# define ALIVE	9001
-# define DEAD	0
 
 typedef struct s_philos_params	t_philos_params;
 typedef struct s_philo			t_philo;
@@ -46,7 +44,6 @@ struct s_philos_params
 	uint64_t		eat_time;
 	uint64_t		sleep_time;
 	int				n_times_to_eat;
-	int				is_alive;
 
 	int				supervisor_counter;
 

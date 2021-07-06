@@ -6,7 +6,7 @@
 /*   By: abiari <abiari@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/05 11:57:52 by abiari            #+#    #+#             */
-/*   Updated: 2021/07/06 14:16:03 by abiari           ###   ########.fr       */
+/*   Updated: 2021/07/06 14:24:49 by abiari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ t_philo	*philos_init(t_philos_params *init_data)
 	int		i;
 	t_philo	*philo;
 
-	i = -1;
+	i = 0;
 	philo = (t_philo *)malloc(init_data->n_philosophers * sizeof(t_philo));
 	while (i < init_data->n_philosophers)
 	{
@@ -81,7 +81,6 @@ void	fill_init_data(t_philos_params *init_data, int ac, char **av)
 		init_data->n_times_to_eat = ft_atoi(av[5]);
 	else
 		init_data->n_times_to_eat = 0;
-	init_data->is_alive = ALIVE;
 	init_data->supervisor_counter = 0;
 	init_data->philos = philos_init(init_data);
 }
