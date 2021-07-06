@@ -6,7 +6,7 @@
 #    By: abiari <abiari@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/03 12:59:14 by abiari            #+#    #+#              #
-#    Updated: 2021/07/06 12:24:58 by abiari           ###   ########.fr        #
+#    Updated: 2021/07/06 12:25:50 by abiari           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CFLAGS = -Wall -Werror -Wextra -g3
 NAME_BONUS = philo_bonus
 
 SRC = philo.c time_funcs.c ft_atoi.c inits.c clear_all.c philo_eat.c\
-print_status.c philo_sleep.c philo_think.c supervisor.c
+print_status.c philo_sleep.c philo_think.c supervisor.c ft_strcmp.c
 
 SRC_BONUS = philo_bonus.c
 

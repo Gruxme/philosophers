@@ -6,7 +6,7 @@
 /*   By: abiari <abiari@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/05 11:57:52 by abiari            #+#    #+#             */
-/*   Updated: 2021/07/06 10:41:22 by abiari           ###   ########.fr       */
+/*   Updated: 2021/07/06 14:16:03 by abiari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ t_philo	*philos_init(t_philos_params *init_data)
 	int		i;
 	t_philo	*philo;
 
-	i = 0;
+	i = -1;
 	philo = (t_philo *)malloc(init_data->n_philosophers * sizeof(t_philo));
 	while (i < init_data->n_philosophers)
 	{
@@ -42,6 +42,7 @@ t_philo	*philos_init(t_philos_params *init_data)
 		philo[i].n_times_ate = 0;
 		pthread_mutex_init(&(philo[i].philo_eat), NULL);
 		philo[i].init_data = init_data;
+		philo[i].is_eating = 0;
 		i++;
 	}
 	return (philo);
