@@ -6,7 +6,7 @@
 /*   By: abiari <abiari@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 12:57:24 by abiari            #+#    #+#             */
-/*   Updated: 2021/07/06 10:33:53 by abiari           ###   ########.fr       */
+/*   Updated: 2021/07/07 12:09:14 by abiari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ int	main(int argc, char **argv)
 	if (argc != 5 && argc != 6)
 		return (255);
 	init_data = (t_philos_params *)malloc(sizeof(t_philos_params));
-	fill_init_data(init_data, argc, argv);
+	if (!fill_init_data(init_data, argc, argv))
+		return (255);
 	mutex_init(init_data);
 	threads_init(init_data);
 	return (supervisor(init_data));

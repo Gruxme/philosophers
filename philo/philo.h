@@ -6,7 +6,7 @@
 /*   By: abiari <abiari@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 12:49:04 by abiari            #+#    #+#             */
-/*   Updated: 2021/07/06 14:21:05 by abiari           ###   ########.fr       */
+/*   Updated: 2021/07/07 12:09:33 by abiari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int			ft_atoi(const char *ptr);
 void		mutex_init(t_philos_params *init_data);
 t_philo		*philos_init(t_philos_params *init_data);
 void		threads_init(t_philos_params *init_data);
-void		fill_init_data(t_philos_params *init_data, int ac, char **av);
+int			fill_init_data(t_philos_params *init_data, int ac, char **av);
 void		*routine(void *arg);
 int			ft_strcmp(const char *s1, const char *s2);
 void		print_status(char *msg, t_philo *philo);
@@ -73,5 +73,6 @@ int			supervisor(t_philos_params *init_data);
 void		ft_putnbr(uint64_t n);
 void		ft_putstr_fd(char *s, int fd);
 void		ft_putchar_fd(char c, int fd);
+int			ft_isdigit(int s);
 
 #endif

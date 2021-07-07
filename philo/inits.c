@@ -6,7 +6,7 @@
 /*   By: abiari <abiari@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/05 11:57:52 by abiari            #+#    #+#             */
-/*   Updated: 2021/07/06 14:24:49 by abiari           ###   ########.fr       */
+/*   Updated: 2021/07/07 12:12:06 by abiari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,34 @@ void	threads_init(t_philos_params *init_data)
 	return ;
 }
 
-void	fill_init_data(t_philos_params *init_data, int ac, char **av)
+int	check_arg(char *arg)
 {
+	int	i;
+
+	i = 0;
+	while (arg[i])
+	{
+		if (!ft_isdigit(arg[i]))
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+int	fill_init_data(t_philos_params *init_data, int ac, char **av)
+{
+	int	i;
+
+	i = 1;
+	while (i < ac)
+	{
+		if (!check_arg(av[i]))
+		{
+			printf("error args\n");
+			return (0);
+		}
+		i++;
+	}
 	init_data->n_philosophers = ft_atoi(av[1]);
 	init_data->die_time = ft_atoi(av[2]);
 	init_data->eat_time = ft_atoi(av[3]);
@@ -83,4 +109,5 @@ void	fill_init_data(t_philos_params *init_data, int ac, char **av)
 		init_data->n_times_to_eat = 0;
 	init_data->supervisor_counter = 0;
 	init_data->philos = philos_init(init_data);
+	return (1);
 }
