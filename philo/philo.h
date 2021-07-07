@@ -6,7 +6,7 @@
 /*   By: abiari <abiari@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 12:49:04 by abiari            #+#    #+#             */
-/*   Updated: 2021/07/07 12:09:33 by abiari           ###   ########.fr       */
+/*   Updated: 2021/07/07 16:13:50 by abiari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,6 @@ void		print_status(char *msg, t_philo *philo);
 void		philo_eat(t_philo *philo);
 void		philo_sleep(t_philo *philosopher);
 void		philo_think(t_philo *philosopher);
-void		clear_all(t_philos_params *init_data, void (*del)(void *));
 int			supervisor(t_philos_params *init_data);
 void		ft_putnbr(uint64_t n);
 void		ft_putstr_fd(char *s, int fd);

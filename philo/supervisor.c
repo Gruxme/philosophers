@@ -6,7 +6,7 @@
 /*   By: abiari <abiari@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/05 13:48:15 by abiari            #+#    #+#             */
-/*   Updated: 2021/07/06 14:49:57 by abiari           ###   ########.fr       */
+/*   Updated: 2021/07/07 15:58:07 by abiari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,10 @@ int	end_simulation(t_philos_params **init_data, int i)
 		> (*init_data)->die_time)
 	{
 		print_status("died", &(*init_data)->philos[i]);
-		clear_all((*init_data), &free);
 		return (1);
 	}
 	if ((*init_data)->supervisor_counter == (*init_data)->n_philosophers)
-	{
-		clear_all((*init_data), &free);
 		return (1);
-	}
 	return (0);
 }
 

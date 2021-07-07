@@ -6,7 +6,7 @@
 /*   By: abiari <abiari@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/05 11:57:52 by abiari            #+#    #+#             */
-/*   Updated: 2021/07/07 12:12:06 by abiari           ###   ########.fr       */
+/*   Updated: 2021/07/07 15:02:26 by abiari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,8 @@ int	fill_init_data(t_philos_params *init_data, int ac, char **av)
 		i++;
 	}
 	init_data->n_philosophers = ft_atoi(av[1]);
+	if (init_data->n_philosophers == 0)
+		return (0);
 	init_data->die_time = ft_atoi(av[2]);
 	init_data->eat_time = ft_atoi(av[3]);
 	init_data->sleep_time = ft_atoi(av[4]);
