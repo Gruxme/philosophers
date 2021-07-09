@@ -6,7 +6,7 @@
 /*   By: abiari <abiari@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/05 12:08:17 by abiari            #+#    #+#             */
-/*   Updated: 2021/07/09 13:47:08 by abiari           ###   ########.fr       */
+/*   Updated: 2021/07/09 13:57:06 by abiari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@ void	philo_eat(t_philo *philo)
 	philo->is_eating = 1;
 	sem_post(philo->init_data->supervisor_counter);
 	philo->last_meal = get_current_time();
-	// if (philo->init_data->n_times_to_eat != -1)
-	// 	philo->n_times_ate++;
 	ft_usleep(philo->init_data->eat_time * 1000);
 	philo->is_eating = 0;
 	sem_post(philo->init_data->philo_eat);

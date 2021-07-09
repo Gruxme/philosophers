@@ -6,7 +6,7 @@
 /*   By: abiari <abiari@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/05 09:10:23 by abiari            #+#    #+#             */
-/*   Updated: 2021/07/09 12:43:59 by abiari           ###   ########.fr       */
+/*   Updated: 2021/07/09 13:59:05 by abiari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ uint64_t	get_current_time(void)
 void	ft_usleep(uint64_t sleep_time)
 {
 	uint64_t	start;
-	// uint64_t	time_diff;
+
 	start = get_current_time();
 	usleep(sleep_time - 20000);
 	while (get_current_time() - start < sleep_time / 1000)

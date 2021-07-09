@@ -6,7 +6,7 @@
 /*   By: abiari <abiari@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/05 11:57:52 by abiari            #+#    #+#             */
-/*   Updated: 2021/07/09 13:49:04 by abiari           ###   ########.fr       */
+/*   Updated: 2021/07/09 13:55:59 by abiari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ t_philo	*philos_init(t_philos_params *init_data)
 
 void	routine(t_philo *philo)
 {
-	// philo->last_meal = get_current_time();
 	if (philo->id % 2 == 0)
 		usleep(1000);
 	while (1)
@@ -61,7 +60,8 @@ void	threads_init(t_philos_params *init_data)
 			exit(1);
 		else if (init_data->philos[i].pid == 0)
 		{
-			pthread_create(&p_t, NULL, &supervisor, (void *)(&init_data->philos[i]));
+			pthread_create(&p_t, NULL, &supervisor,
+				(void *)(&init_data->philos[i]));
 			routine(&init_data->philos[i]);
 			exit(1);
 		}
@@ -110,7 +110,8 @@ int	fill_init_data(t_philos_params *init_data, int ac, char **av)
 		init_data->n_times_to_eat = -1;
 	init_data->supervisor_counter = 0;
 	sem_unlink("eaten");
-	init_data->philo_eat = sem_open("eaten", O_CREAT, 0644, init_data->n_philosophers);
+	init_data->philo_eat = sem_open("eaten", O_CREAT, 0644,
+			init_data->n_philosophers);
 	sem_unlink("counter");
 	init_data->supervisor_counter = sem_open("counter", O_CREAT, 0644, 0);
 	init_data->philos = philos_init(init_data);

@@ -6,7 +6,7 @@
 /*   By: abiari <abiari@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/05 13:48:15 by abiari            #+#    #+#             */
-/*   Updated: 2021/07/09 13:46:20 by abiari           ###   ########.fr       */
+/*   Updated: 2021/07/09 13:58:31 by abiari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,13 +47,6 @@ void	ft_kill(t_philos_params *init_data)
 	while (i < init_data->n_philosophers)
 	{
 		waitpid(-1, &status, 0);
-		// if (WIFEXITED(status) && WEXITSTATUS(status) == 2)
-		// {
-		// 	printf("ate n_times_to_eat\n");
-		// 	printf("%d\n", i);
-		// 	i++;
-		// 	continue ;
-		// }
 		if (WIFEXITED(status) && WEXITSTATUS(status) == 1)
 			break ;
 		i++;
@@ -73,23 +66,12 @@ void	*supervisor(void *philo)
 	{
 		if (!philos->is_eating)
 		{
-			if ((get_current_time() - philos->last_meal) > philos->init_data->die_time)
+			if ((get_current_time() - philos->last_meal)
+				> philos->init_data->die_time)
 			{
 				print_status("died", philos);
 				exit(1);
 			}
-			// if (philos->init_data->n_times_to_eat != -1
-			// 	&& philos->init_data->n_times_to_eat
-			// 	<= philos->n_times_ate)
-			// {
-			// 	// printf("count %d\n", philos->count);
-			// 	while (philos->count > 0)
-			// 	{
-			// 		sem_post(philos->init_data->forks);
-			// 		philos->count--;
-			// 	}
-			// 	exit(2);
-			// }
 		}
 		usleep(800);
 	}

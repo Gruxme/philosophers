@@ -6,7 +6,7 @@
 /*   By: abiari <abiari@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 12:49:04 by abiari            #+#    #+#             */
-/*   Updated: 2021/07/09 13:45:54 by abiari           ###   ########.fr       */
+/*   Updated: 2021/07/09 13:56:53 by abiari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ struct s_philo
 	int					n_times_ate;
 	int					is_eating;
 	int					count;
-
 	uint64_t			last_meal;
 	pid_t				pid;
 	t_philos_params		*init_data;
@@ -43,14 +42,11 @@ struct s_philos_params
 	uint64_t		eat_time;
 	uint64_t		sleep_time;
 	int				n_times_to_eat;
-	// int				supervisor_counter;
 	uint64_t		start_time;
-
 	sem_t			*write;
 	sem_t			*forks;
 	sem_t			*philo_eat;
 	sem_t			*supervisor_counter;
-
 	t_philo			*philos;
 };
 
@@ -73,6 +69,5 @@ void		ft_kill(t_philos_params *init_data);
 void		ft_putchar_fd(char c, int fd);
 void		ft_putnbr_fd(uint64_t n, int fd);
 void		ft_putstr_fd(char *s, int fd);
-
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: abiari <abiari@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/05 12:29:58 by abiari            #+#    #+#             */
-/*   Updated: 2021/07/09 13:47:56 by abiari           ###   ########.fr       */
+/*   Updated: 2021/07/09 13:58:44 by abiari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void	print_status(char *msg, t_philo *philo)
 
 	sem_wait(philo->init_data->write);
 	time_diff = (get_current_time() - philo->init_data->start_time);
-	// printf("%llu %d %s\n", time_diff, philo->id, msg);
 	ft_putnbr_fd(time_diff, 1);
 	ft_putstr_fd(" ", 1);
 	ft_putnbr_fd(philo->id, 1);
