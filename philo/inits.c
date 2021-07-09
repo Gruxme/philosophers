@@ -6,7 +6,7 @@
 /*   By: abiari <abiari@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/05 11:57:52 by abiari            #+#    #+#             */
-/*   Updated: 2021/07/07 15:02:26 by abiari           ###   ########.fr       */
+/*   Updated: 2021/07/09 14:58:04 by abiari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,8 +108,10 @@ int	fill_init_data(t_philos_params *init_data, int ac, char **av)
 	if (ac == 6)
 		init_data->n_times_to_eat = ft_atoi(av[5]);
 	else
-		init_data->n_times_to_eat = 0;
+		init_data->n_times_to_eat = -1;
 	init_data->supervisor_counter = 0;
+	if (init_data->n_times_to_eat == 0)
+		return (0);
 	init_data->philos = philos_init(init_data);
 	return (1);
 }
