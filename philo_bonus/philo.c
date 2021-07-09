@@ -6,7 +6,7 @@
 /*   By: abiari <abiari@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 12:57:24 by abiari            #+#    #+#             */
-/*   Updated: 2021/07/09 11:50:57 by abiari           ###   ########.fr       */
+/*   Updated: 2021/07/09 15:14:40 by abiari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	main(int argc, char **argv)
 	init_data->write = sem_open("write", O_CREAT, 0644, 1);
 	sem_unlink("eating");
 	init_data->philo_eat = sem_open("eating", O_CREAT, 0644,
-			init_data->n_philosophers);
+			init_data->n_philosophers / 2);
 	threads_init(init_data);
 	return (0);
 }

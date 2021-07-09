@@ -6,11 +6,21 @@
 /*   By: abiari <abiari@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/05 13:48:15 by abiari            #+#    #+#             */
-/*   Updated: 2021/07/09 13:58:31 by abiari           ###   ########.fr       */
+/*   Updated: 2021/07/09 16:18:34 by abiari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
+void	routine(t_philo *philo)
+{
+	while (1)
+	{
+		philo_eat(philo);
+		philo_sleep(philo);
+		philo_think(philo);
+	}
+}
 
 void	*eat_count(void	*arg)
 {

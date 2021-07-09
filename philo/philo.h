@@ -6,7 +6,7 @@
 /*   By: abiari <abiari@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 12:49:04 by abiari            #+#    #+#             */
-/*   Updated: 2021/07/07 16:13:50 by abiari           ###   ########.fr       */
+/*   Updated: 2021/07/09 17:33:13 by abiari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,5 +73,7 @@ void		ft_putnbr(uint64_t n);
 void		ft_putstr_fd(char *s, int fd);
 void		ft_putchar_fd(char c, int fd);
 int			ft_isdigit(int s);
+int			check_arg(char *arg);
+int			check_args(int ac, char **av);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: abiari <abiari@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/05 11:57:52 by abiari            #+#    #+#             */
-/*   Updated: 2021/07/09 13:55:59 by abiari           ###   ########.fr       */
+/*   Updated: 2021/07/09 16:18:28 by abiari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,23 +24,10 @@ t_philo	*philos_init(t_philos_params *init_data)
 		philo[i].id = i + 1;
 		philo[i].init_data = init_data;
 		philo[i].is_eating = 0;
-		philo[i].count = 0;
 		philo[i].n_times_ate = 0;
 		i++;
 	}
 	return (philo);
-}
-
-void	routine(t_philo *philo)
-{
-	if (philo->id % 2 == 0)
-		usleep(1000);
-	while (1)
-	{
-		philo_eat(philo);
-		philo_sleep(philo);
-		philo_think(philo);
-	}
 }
 
 void	threads_init(t_philos_params *init_data)
@@ -84,7 +71,7 @@ int	check_arg(char *arg)
 	return (1);
 }
 
-int	fill_init_data(t_philos_params *init_data, int ac, char **av)
+int	check_args(int ac, char **av)
 {
 	int	i;
 
@@ -98,6 +85,13 @@ int	fill_init_data(t_philos_params *init_data, int ac, char **av)
 		}
 		i++;
 	}
+	return (1);
+}
+
+int	fill_init_data(t_philos_params *init_data, int ac, char **av)
+{
+	if (!check_args(ac, av))
+		return (0);
 	init_data->n_philosophers = ft_atoi(av[1]);
 	if (init_data->n_philosophers == 0)
 		return (0);
@@ -108,10 +102,8 @@ int	fill_init_data(t_philos_params *init_data, int ac, char **av)
 		init_data->n_times_to_eat = ft_atoi(av[5]);
 	else
 		init_data->n_times_to_eat = -1;
-	init_data->supervisor_counter = 0;
-	sem_unlink("eaten");
-	init_data->philo_eat = sem_open("eaten", O_CREAT, 0644,
-			init_data->n_philosophers);
+	if (init_data->n_times_to_eat == 0)
+		return (0);
 	sem_unlink("counter");
 	init_data->supervisor_counter = sem_open("counter", O_CREAT, 0644, 0);
 	init_data->philos = philos_init(init_data);

@@ -6,7 +6,7 @@
 /*   By: abiari <abiari@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 12:49:04 by abiari            #+#    #+#             */
-/*   Updated: 2021/07/09 13:56:53 by abiari           ###   ########.fr       */
+/*   Updated: 2021/07/09 16:18:48 by abiari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ struct s_philo
 	int					id;
 	int					n_times_ate;
 	int					is_eating;
-	int					count;
 	uint64_t			last_meal;
 	pid_t				pid;
 	t_philos_params		*init_data;
@@ -56,7 +55,7 @@ int			ft_atoi(const char *ptr);
 t_philo		*philos_init(t_philos_params *init_data);
 void		threads_init(t_philos_params *init_data);
 int			fill_init_data(t_philos_params *init_data, int ac, char **av);
-void		routine(t_philo *arg);
+void		routine(t_philo *philo);
 int			ft_strcmp(const char *s1, const char *s2);
 void		print_status(char *msg, t_philo *philo);
 void		philo_eat(t_philo *philo);

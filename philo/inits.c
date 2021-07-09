@@ -6,7 +6,7 @@
 /*   By: abiari <abiari@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/05 11:57:52 by abiari            #+#    #+#             */
-/*   Updated: 2021/07/09 14:58:04 by abiari           ###   ########.fr       */
+/*   Updated: 2021/07/09 17:32:45 by abiari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,34 +71,10 @@ void	threads_init(t_philos_params *init_data)
 	return ;
 }
 
-int	check_arg(char *arg)
-{
-	int	i;
-
-	i = 0;
-	while (arg[i])
-	{
-		if (!ft_isdigit(arg[i]))
-			return (0);
-		i++;
-	}
-	return (1);
-}
-
 int	fill_init_data(t_philos_params *init_data, int ac, char **av)
 {
-	int	i;
-
-	i = 1;
-	while (i < ac)
-	{
-		if (!check_arg(av[i]))
-		{
-			printf("error args\n");
-			return (0);
-		}
-		i++;
-	}
+	if (!check_args(ac, av))
+		return (0);
 	init_data->n_philosophers = ft_atoi(av[1]);
 	if (init_data->n_philosophers == 0)
 		return (0);

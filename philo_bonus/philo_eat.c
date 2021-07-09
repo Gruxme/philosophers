@@ -6,7 +6,7 @@
 /*   By: abiari <abiari@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/05 12:08:17 by abiari            #+#    #+#             */
-/*   Updated: 2021/07/09 13:57:06 by abiari           ###   ########.fr       */
+/*   Updated: 2021/07/09 15:11:17 by abiari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,8 @@
 void	philo_eat(t_philo *philo)
 {
 	sem_wait(philo->init_data->forks);
-	philo->count++;
 	print_status("has taken left fork", philo);
 	sem_wait(philo->init_data->forks);
-	philo->count++;
 	print_status("has taken right fork", philo);
 	sem_wait(philo->init_data->philo_eat);
 	print_status("is eating", philo);
@@ -29,7 +27,5 @@ void	philo_eat(t_philo *philo)
 	philo->is_eating = 0;
 	sem_post(philo->init_data->philo_eat);
 	sem_post(philo->init_data->forks);
-	philo->count--;
 	sem_post(philo->init_data->forks);
-	philo->count--;
 }

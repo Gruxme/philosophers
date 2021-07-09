@@ -6,7 +6,7 @@
 #    By: abiari <abiari@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/03 12:59:14 by abiari            #+#    #+#              #
-#    Updated: 2021/07/08 15:33:07 by abiari           ###   ########.fr        #
+#    Updated: 2021/07/09 17:33:36 by abiari           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ CFLAGS = -Wall -Werror -Wextra -g3
 
 SRC = philo.c time_funcs.c ft_atoi.c inits.c ft_isdigit.c philo_eat.c\
 print_status.c philo_sleep.c philo_think.c supervisor.c ft_strcmp.c\
+check_args.c
 
 all: $(NAME)
 
